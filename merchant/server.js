@@ -38,9 +38,9 @@ function seedOrder(id) {
     event: "Total Eclipse of the Chart — World Tour",
     venue: "Scotiabank Arena, Toronto",
     date: "Sat, Sep 12 2026 · 8:00 PM",
-    qty: 3,
-    unit_cents: 23333, // 3 × $233.33 = $699.99 + $0.01 order fee = $700.00
-    fee_cents: 1,
+    qty: 5,
+    unit_cents: 14000, // 5 × $140.00 = $700.00 total
+    fee_cents: 0,
     total_cents: 70000,
     status: "pending", // 'pending' | 'confirmed'
     paid_via: null,
@@ -134,5 +134,5 @@ app.post("/api/payment-callback", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`TicketMaster demo → http://localhost:${PORT}/seats`);
-  console.log(`seeded order ORD-8814 ($700.00), status pending`);
+  console.log(`seeded order ORD-8814 (5 tickets, $700.00), status pending`);
 });
