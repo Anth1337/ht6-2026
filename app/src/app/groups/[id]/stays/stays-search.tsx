@@ -19,6 +19,7 @@ interface Listing {
   nights: number;
   provider: string;
   book_url: string | null;
+  is_demo?: boolean;
   locked: boolean;
   over_budget_count: number;
 }
@@ -152,8 +153,8 @@ export function StaysSearch({ groupId }: { groupId: string }) {
                   render={
                     <a
                       href={l.book_url ?? "#"}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      target={l.is_demo ? undefined : "_blank"}
+                      rel={l.is_demo ? undefined : "noopener noreferrer"}
                     />
                   }
                 >
