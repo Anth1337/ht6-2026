@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { requireUserPage } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { fmt } from "@/lib/money";
 import { Nav } from "@/components/nav";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { JoinButton } from "./join-button";
@@ -48,18 +47,18 @@ export default async function JoinPage({
               Invited by {organizer.name ?? organizer.email}.
             </p>
             <div className="rounded-lg border bg-muted/50 p-4 text-sm">
-              By joining, you authorize SunPay to charge your saved card up to{" "}
-              <strong>{fmt(cap)}</strong> per group purchase, automatically,
-              when the organizer completes a checkout for this group. If a
-              charge fails, SunPay covers your share and you repay within 30
-              days.
+              Set your budget for this group below — you can change it anytime.
+              By joining, you authorize SunPay to charge your saved card up to
+              that budget per group purchase, automatically, when the organizer
+              completes a checkout for this group. If a charge fails, SunPay
+              covers your share and you repay within 30 days.
             </div>
             {myMembership?.accepted_at ? (
               <p className="text-sm text-green-700">
                 You’re already a member of this group. ✓
               </p>
             ) : (
-              <JoinButton code={code} />
+              <JoinButton code={code} defaultCapCents={cap} />
             )}
           </CardContent>
         </Card>

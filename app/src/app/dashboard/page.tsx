@@ -8,6 +8,7 @@ import { Nav } from "@/components/nav";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { EditCapForm } from "@/components/edit-cap-form";
 import { PayNowButton } from "./pay-now-button";
 
 export const dynamic = "force-dynamic";
@@ -97,17 +98,24 @@ export default async function Dashboard() {
               <p className="text-sm text-muted-foreground">No groups yet.</p>
             )}
             {groups.map((g) => (
-              <Link
+              <div
                 key={g.id}
-                href={`/groups/${g.id}`}
-                className="flex items-center justify-between rounded-lg border p-3 hover:bg-accent"
+                className="flex items-center justify-between gap-3 rounded-lg border p-3"
               >
-                <span className="font-medium">{g.name}</span>
-                <span className="text-sm text-muted-foreground">
-                  your cap {fmt(g.cap_cents)}
-                  {g.organizer_id === user.id && " · organizer"}
-                </span>
-              </Link>
+                <Link
+                  href={`/groups/${g.id}`}
+                  className="font-medium hover:underline"
+                >
+                  {g.name}
+                  {g.organizer_id === user.id && (
+                    <span className="text-sm font-normal text-muted-foreground">
+                      {" "}
+                      · organizer
+                    </span>
+                  )}
+                </Link>
+                <EditCapForm groupId={g.id} capCents={g.cap_cents} />
+              </div>
             ))}
           </CardContent>
         </Card>

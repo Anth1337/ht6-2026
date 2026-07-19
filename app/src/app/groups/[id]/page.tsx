@@ -7,6 +7,7 @@ import { Nav } from "@/components/nav";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { EditCapForm } from "@/components/edit-cap-form";
 import { InviteLink } from "./invite-link";
 
 export const dynamic = "force-dynamic";
@@ -78,8 +79,14 @@ export default async function GroupPage({
                 {m.id === group.organizer_id && (
                   <Badge variant="outline">organizer</Badge>
                 )}
-                <span className="ml-auto text-sm text-muted-foreground">
-                  cap {fmt(m.cap_cents)}
+                <span className="ml-auto">
+                  {m.id === user.id ? (
+                    <EditCapForm groupId={group.id} capCents={m.cap_cents} />
+                  ) : (
+                    <span className="text-sm text-muted-foreground">
+                      cap {fmt(m.cap_cents)}
+                    </span>
+                  )}
                 </span>
                 {m.accepted_at ? (
                   <Badge className="bg-green-600 text-white hover:bg-green-600">

@@ -11,8 +11,8 @@ export function Nav({ userName }: { userName?: string | null }) {
           <Link href="/dashboard" className="hover:text-foreground">
             Dashboard
           </Link>
-          <Link href="/ledger" className="hover:text-foreground">
-            Ledger
+          <Link href="/history" className="hover:text-foreground">
+            History
           </Link>
         </nav>
         <div className="ml-auto flex items-center gap-3 text-sm">

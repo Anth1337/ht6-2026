@@ -61,7 +61,7 @@ npx tsx --env-file=.env.local scripts/proof-stay22.ts       # live Stay22 call, 
 4. Execution screen: member 1 ✓, member 2 ✓, **member 3 declines → float covers $233.33** — merchant still paid in full
 5. **Return to TicketMaster** → order flips **Confirmed ✓ — Paid via SunPay**
 6. Member 3's dashboard: owes $233.33 → **Pay now** (backup card) → **All settled ✓**
-7. `/ledger` — every movement listed, **BOOKS BALANCED ✓**
+7. `/history` — every movement listed in plain language, **Everything adds up ✓**
 8. If time: group page → **Find a stay** — Cancun search, per-person prices from the Stay22 Accommodations Search API, over-cap listings greyed "Over budget for 1 member"; in-budget cards have a **Book on {provider} →** link that opens the live provider listing in a new tab (budget research only — never touches the payment engine)
 
 **Re-running the demo:** after the order is confirmed, the TicketMaster order page shows **↺ Reset demo & run again** — one click restores order `ORD-8814` to pending and purges the split + its ledger entries so you can run the identical flow again. There's also a small "Reset demo" link on `/event` for when you abandon a run mid-flow. (Manual reset: `npm run seed` in `app/`, but then restart the `:3000` server — a running dev server keeps a handle to the old DB file.)
