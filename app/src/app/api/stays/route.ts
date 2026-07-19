@@ -95,7 +95,7 @@ export async function GET(req: NextRequest) {
   const { data, live } = await fetchStays(qs);
   const nights = data.meta?.nights ?? 1;
 
-  const listings = (data.results ?? [])
+  const stayListings = (data.results ?? [])
     .map((l) => {
       // Cheapest supplier drives the price and the outbound booking link.
       const suppliers = Object.entries(l.suppliers ?? {})
@@ -126,7 +126,37 @@ export async function GET(req: NextRequest) {
         over_budget_count: overBudget.length,
       };
     })
-    .filter((l): l is NonNullable<typeof l> => l !== null);
+    // Keep options the group could reasonably discuss: a stay may exceed one
+    // member's cap, but exclude stays that are unaffordable for multiple people.
+    .filter(
+      (l): l is NonNullable<typeof l> =>
+        l !== null && l.over_budget_count <= 1
+    );
+
+  // One result in each search opens our local hotel-checkout demo. It uses a
+  // real Stay22 result as its price source, while the remaining cards retain
+  // their normal provider links.
+  const demoSource = stayListings.find((l) => !l.locked) ?? stayListings[0];
+  const listings = demoSource
+    ? [
+        {
+          ...demoSource,
+          id: `sunpay-demo-${demoSource.id}`,
+          name: "SunPay Hotel Demo",
+          type: "Booking.com-style demo accommodation",
+          provider: "Booking.com demo",
+          book_url: `/hotel-demo?${new URLSearchParams({
+            hotel: demoSource.name,
+            total_cents: String(demoSource.total_cents),
+            nights: String(demoSource.nights),
+            address: demoSource.address ?? "Selected Stay22 accommodation",
+            image: demoSource.thumbnail ?? "",
+          })}`,
+          is_demo: true,
+        },
+        ...stayListings,
+      ]
+    : stayListings;
 
   return NextResponse.json({ listings, live, nights, member_count: n });
 }
