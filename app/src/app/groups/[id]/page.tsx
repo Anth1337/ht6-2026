@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { requireUserPage } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { fmt } from "@/lib/money";
-import { Nav } from "@/components/nav";
+import { AppShell } from "@/components/app-shell";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -47,22 +47,20 @@ export default async function GroupPage({
   const allAccepted = roster.every((r) => r.accepted_at !== null);
 
   return (
-    <>
-      <Nav userName={user.name ?? user.email} />
-      <main className="mx-auto max-w-4xl space-y-6 p-8">
-        <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-bold">{group.name}</h1>
-          {allAccepted ? (
-            <Button render={<Link href={`/groups/${group.id}/stays`} />}>
-              Find a stay
-            </Button>
-          ) : (
-            <Button disabled variant="secondary" title="Waiting for all invites to be accepted">
-              Find a stay (waiting on invites)
-            </Button>
-          )}
-        </div>
-
+    <AppShell
+      title={group.name}
+      action={
+        allAccepted ? (
+          <Button render={<Link href={`/groups/${group.id}/stays`} />}>
+            Find a stay
+          </Button>
+        ) : (
+          <Button disabled variant="secondary" title="Waiting for all invites to be accepted">
+            Find a stay (waiting on invites)
+          </Button>
+        )
+      }
+    >
         <InviteLink code={group.invite_code} />
 
         <Card>
@@ -73,7 +71,7 @@ export default async function GroupPage({
             {roster.map((m) => (
               <div
                 key={m.id}
-                className="flex items-center gap-3 rounded-lg border p-3"
+                className="flex items-center gap-3 rounded-xl bg-background px-4 py-3"
               >
                 <span className="font-medium">{m.name ?? m.email}</span>
                 {m.id === group.organizer_id && (
@@ -89,7 +87,7 @@ export default async function GroupPage({
                   )}
                 </span>
                 {m.accepted_at ? (
-                  <Badge className="bg-green-600 text-white hover:bg-green-600">
+                  <Badge variant="outline" className="border-signal-positive text-signal-positive">
                     accepted
                   </Badge>
                 ) : (
@@ -99,7 +97,6 @@ export default async function GroupPage({
             ))}
           </CardContent>
         </Card>
-      </main>
-    </>
+    </AppShell>
   );
 }

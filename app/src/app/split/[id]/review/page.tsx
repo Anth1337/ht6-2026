@@ -2,7 +2,7 @@ import { notFound, redirect } from "next/navigation";
 import { requireUserPage } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { fmt } from "@/lib/money";
-import { Nav } from "@/components/nav";
+import { AppShell } from "@/components/app-shell";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -67,12 +67,7 @@ export default async function ReviewPage({
     split.total_cents > threshold && process.env.AUTH0_SKIP_STEPUP !== "true";
 
   return (
-    <>
-      <Nav userName={user.name ?? user.email} />
-      <main className="mx-auto max-w-2xl space-y-6 p-8">
-        <h1 className="text-2xl font-bold">
-          Review split — {split.merchant_name}
-        </h1>
+    <AppShell title={`Review split — ${split.merchant_name}`} width="2xl">
         <Card>
           <CardHeader>
             <CardTitle>
@@ -108,7 +103,7 @@ export default async function ReviewPage({
                       {fmt(s.principal_cents)}
                       {s.principal_cents > minShare && (
                         <span
-                          className="ml-1 text-amber-600"
+                          className="ml-1 text-signal-attention"
                           title="Absorbs the odd cent(s) so shares total exactly"
                         >
                           +{s.principal_cents - minShare}¢
@@ -128,7 +123,6 @@ export default async function ReviewPage({
           </p>
         )}
         <AuthorizeButton splitId={split.id} totalLabel={fmt(split.total_cents)} />
-      </main>
-    </>
+    </AppShell>
   );
 }

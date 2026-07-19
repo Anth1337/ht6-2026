@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { requireUserPage, isMember } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { Nav } from "@/components/nav";
+import { AppShell } from "@/components/app-shell";
 import { ExecutionView } from "./execution-view";
 
 export const dynamic = "force-dynamic";
@@ -19,11 +19,8 @@ export default async function SplitPage({
   if (!split || !isMember(split.group_id, user.id)) notFound();
 
   return (
-    <>
-      <Nav userName={user.name ?? user.email} />
-      <main className="mx-auto max-w-2xl space-y-6 p-8">
-        <ExecutionView splitId={id} />
-      </main>
-    </>
+    <AppShell title="Split" width="2xl">
+      <ExecutionView splitId={id} />
+    </AppShell>
   );
 }

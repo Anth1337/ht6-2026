@@ -3,7 +3,7 @@ import { db } from "@/lib/db";
 import { verifyParams } from "@/lib/sign";
 import { allocate } from "@/lib/allocate";
 import { fmt } from "@/lib/money";
-import { Nav } from "@/components/nav";
+import { AppShell } from "@/components/app-shell";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GroupPicker } from "./group-picker";
 
@@ -33,20 +33,17 @@ export default async function SplitEntry({
     verifyParams({ merchant_name, external_order_id, amount_cents, return_url }, sig);
   if (!valid) {
     return (
-      <>
-        <Nav userName={user.name ?? user.email} />
-        <main className="mx-auto max-w-md p-8">
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-red-600">Invalid handoff</CardTitle>
-            </CardHeader>
-            <CardContent className="text-sm text-muted-foreground">
-              This checkout link has a bad or missing signature. Go back to the
-              merchant and try again.
-            </CardContent>
-          </Card>
-        </main>
-      </>
+      <AppShell title="Split checkout" width="md">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-red-600">Invalid handoff</CardTitle>
+          </CardHeader>
+          <CardContent className="text-sm text-muted-foreground">
+            This checkout link has a bad or missing signature. Go back to the
+            merchant and try again.
+          </CardContent>
+        </Card>
+      </AppShell>
     );
   }
 
@@ -84,24 +81,21 @@ export default async function SplitEntry({
   });
 
   return (
-    <>
-      <Nav userName={user.name ?? user.email} />
-      <main className="mx-auto max-w-md space-y-6 p-8">
-        <Card>
-          <CardHeader>
-            <CardTitle>
-              Split {fmt(amount_cents)} from {merchant_name}
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="text-sm text-muted-foreground">
-            Order {external_order_id} · signature verified ✓
-          </CardContent>
-        </Card>
-        <GroupPicker
-          groups={evaluated}
-          handoff={{ merchant_name, external_order_id, amount_cents, return_url, sig }}
-        />
-      </main>
-    </>
+    <AppShell title="Split checkout" width="md">
+      <Card>
+        <CardHeader>
+          <CardTitle>
+            Split {fmt(amount_cents)} from {merchant_name}
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="text-sm text-muted-foreground">
+          Order {external_order_id} · signature verified ✓
+        </CardContent>
+      </Card>
+      <GroupPicker
+        groups={evaluated}
+        handoff={{ merchant_name, external_order_id, amount_cents, return_url, sig }}
+      />
+    </AppShell>
   );
 }

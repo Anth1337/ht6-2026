@@ -1,4 +1,4 @@
-.env.local
+22.env.local
 .env*.local
 
 node_modules/

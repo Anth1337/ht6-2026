@@ -102,13 +102,13 @@ export function StaysSearch({ groupId }: { groupId: string }) {
                 <img
                   src={l.thumbnail}
                   alt={l.name}
-                  className="h-36 w-full rounded-md object-cover"
+                  className="h-36 w-full object-cover grayscale contrast-110"
                 />
               )}
               <div className="flex items-start justify-between gap-2">
                 <p className="font-medium leading-tight">{l.name}</p>
                 {l.stars ? (
-                  <span className="whitespace-nowrap text-sm text-amber-500">
+                  <span className="whitespace-nowrap text-sm text-signal-attention">
                     {"★".repeat(Math.round(l.stars))}
                   </span>
                 ) : null}
@@ -137,7 +137,7 @@ export function StaysSearch({ groupId }: { groupId: string }) {
                     {l.over_budget_count > 1 ? "s" : ""}
                   </Badge>
                 ) : (
-                  <Badge className="bg-green-600 text-white hover:bg-green-600">
+                  <Badge variant="outline" className="border-signal-positive text-signal-positive">
                     In budget ✓
                   </Badge>
                 )}

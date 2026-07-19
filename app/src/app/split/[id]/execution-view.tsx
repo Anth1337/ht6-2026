@@ -35,10 +35,10 @@ function StatusBadge({ o }: { o: Obligation }) {
   switch (o.state) {
     case "charged":
     case "settled":
-      return <Badge className="bg-green-600 text-white hover:bg-green-600">charged ✓</Badge>;
+      return <Badge variant="outline" className="border-signal-positive text-signal-positive">charged ✓</Badge>;
     case "floated":
       return (
-        <Badge className="bg-amber-500 text-white hover:bg-amber-500">
+        <Badge variant="outline" className="border-signal-attention text-signal-attention">
           {o.last_payment_status === "declined" ? "declined → float covers" : "float covers"}
         </Badge>
       );

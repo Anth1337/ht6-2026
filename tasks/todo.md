@@ -10,6 +10,25 @@ Plan: `/Users/anth/.claude/plans/please-implement-the-sunpay-implementati-scalab
 - [x] Phase 5 — Stay22 (+offline fixture fallback verified) + step-up MFA wiring (acr_values forwarding verified)
 - [x] Phase 6 — README, root scripts, production build passes, hardcoded-amount grep clean
 
+## Klarna-style app shell revamp (approved 2026-07-19)
+
+Plan: `/Users/anth/.claude/plans/continue-to-make-a-gleaming-matsumoto.md`
+
+- [x] Phase 1 — Tokens: `--radius` 0→1rem, `--card` #141414, remove film grain
+- [x] Phase 2 — Shell: `app-shell.tsx` + `sidebar.tsx`, migrate all 10 pages, delete `nav.tsx`
+- [x] Phase 3 — Dashboard widgets: hero balance card, flat rows, header action; Card ring removed
+- [x] Verify: screenshots (1440/900/480 on /history; hotel-demo + merchant regression), lint, tsc
+
+Review notes:
+- Fixed a pre-existing font bug found during verification: `@theme` mapped
+  `--font-sans` to itself and `font-sans` sat on `<html>` while layout.tsx defines
+  the Geist vars on `<body>` — the whole app was silently rendering in serif.
+  Now `--font-sans: var(--font-geist-sans)` and `body` carries `font-sans`.
+- `npm run build` not run (dev server on :3000 holds `.next`); lint + `tsc --noEmit`
+  are clean and /history renders. Run a build after stopping the dev server.
+- /dashboard is auth-gated so headless screenshots used /history (same shell);
+  dashboard widgets need a quick eyeball during the §10 browser pass.
+
 ## Remaining (needs the user)
 
 - [ ] Fill `app/seed/auth0-users.json` with the 3 real Auth0 users (or rely on email auto-link), reseed

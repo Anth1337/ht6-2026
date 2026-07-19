@@ -11,6 +11,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { AppShell } from "@/components/app-shell";
 
 export const dynamic = "force-dynamic";
 
@@ -87,18 +88,18 @@ export default function HistoryPage() {
   const kindLabel = (kind: string) => KIND_LABELS[kind] ?? kind;
 
   return (
-    <main className="mx-auto max-w-4xl space-y-6 p-8">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold">History</h1>
-        {balanced ? (
-          <Badge className="bg-green-600 text-white hover:bg-green-600">
+    <AppShell
+      title="History"
+      action={
+        balanced ? (
+          <Badge variant="outline" className="border-signal-positive text-signal-positive">
             Everything adds up ✓
           </Badge>
         ) : (
           <Badge variant="destructive">Doesn&rsquo;t add up ✗</Badge>
-        )}
-      </div>
-
+        )
+      }
+    >
       <Card>
         <CardHeader>
           <CardTitle>Balances</CardTitle>
@@ -142,7 +143,7 @@ export default function HistoryPage() {
           {txns.map((t) => {
             const merchant = t.split_id ? merchantNames.get(t.split_id) : null;
             return (
-              <div key={t.id} className="rounded-lg border p-3">
+              <div key={t.id} className="rounded-xl bg-background p-4">
                 <div className="mb-2 flex items-center gap-2 text-sm">
                   <Badge variant="outline">{kindLabel(t.kind)}</Badge>
                   {merchant && (
@@ -176,6 +177,6 @@ export default function HistoryPage() {
           })}
         </CardContent>
       </Card>
-    </main>
+    </AppShell>
   );
 }

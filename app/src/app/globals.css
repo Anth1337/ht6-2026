@@ -7,7 +7,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  /* layout.tsx exposes the loaded fonts as --font-geist-sans / --font-geist-mono */
+  --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -46,85 +47,114 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* SunPay brand signal colors — reference from Tailwind as bg-signal-*, text-signal-*, border-signal-* */
+  --color-signal-positive: var(--signal-positive);
+  --color-signal-attention: var(--signal-attention);
 }
 
+/*
+  SunPay dark theme. The app now defaults to dark — the palette below lives in
+  :root so no `.dark` class on <html> is required. (A .dark block is still
+  provided, identical, so anything toggling it keeps working.)
+
+  Design language: near-black canvas, sunset-orange accent (from the logo),
+  flat lifted card surfaces (no borders/rings), generous radii (--radius: 1rem
+  → pill buttons/badges, 16–22px cards), Inter throughout.
+*/
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --background: #0d0d0d;
+  --foreground: #e0e0e0;
+  /* card = the existing muted tone, so surfaces read as soft lifts without borders */
+  --card: #141414;
+  --card-foreground: #f0f0f0;
+  --popover: #141414;
+  --popover-foreground: #f0f0f0;
+
+  /* sunset-orange primary, near-black text on it */
+  --primary: #ec9a54;
+  --primary-foreground: #0d0d0d;
+
+  --secondary: #1a1a1a;
+  --secondary-foreground: #e0e0e0;
+  --muted: #141414;
+  --muted-foreground: #888888;
+
+  /* accent = subtle hover surface, NOT the brand orange */
+  --accent: #1a1a1a;
+  --accent-foreground: #f0f0f0;
+
+  --destructive: #cf7a6a;
+
+  --border: #2a2a2a;
+  --input: #333333;
+  --ring: #ec9a54;
+
+  /* brand signal colors */
+  --signal-positive: #86b092; /* muted sage — charged / accepted / in budget */
+  --signal-attention: #ec9a54; /* sunset — floated / covered by SunPay */
+
+  --chart-1: #ec9a54;
+  --chart-2: #86b092;
+  --chart-3: #6b9fc4;
+  --chart-4: #cf7a6a;
+  --chart-5: #888888;
+
+  --radius: 1rem;
+
+  --sidebar: #0d0d0d;
+  --sidebar-foreground: #e0e0e0;
+  --sidebar-primary: #ec9a54;
+  --sidebar-primary-foreground: #0d0d0d;
+  --sidebar-accent: #1a1a1a;
+  --sidebar-accent-foreground: #f0f0f0;
+  --sidebar-border: #2a2a2a;
+  --sidebar-ring: #ec9a54;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #0d0d0d;
+  --foreground: #e0e0e0;
+  --card: #141414;
+  --card-foreground: #f0f0f0;
+  --popover: #141414;
+  --popover-foreground: #f0f0f0;
+  --primary: #ec9a54;
+  --primary-foreground: #0d0d0d;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #e0e0e0;
+  --muted: #141414;
+  --muted-foreground: #888888;
+  --accent: #1a1a1a;
+  --accent-foreground: #f0f0f0;
+  --destructive: #cf7a6a;
+  --border: #2a2a2a;
+  --input: #333333;
+  --ring: #ec9a54;
+  --signal-positive: #86b092;
+  --signal-attention: #ec9a54;
+  --chart-1: #ec9a54;
+  --chart-2: #86b092;
+  --chart-3: #6b9fc4;
+  --chart-4: #cf7a6a;
+  --chart-5: #888888;
+  --sidebar: #0d0d0d;
+  --sidebar-foreground: #e0e0e0;
+  --sidebar-primary: #ec9a54;
+  --sidebar-primary-foreground: #0d0d0d;
+  --sidebar-accent: #1a1a1a;
+  --sidebar-accent-foreground: #f0f0f0;
+  --sidebar-border: #2a2a2a;
+  --sidebar-ring: #ec9a54;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  /* font-sans must sit on body: layout.tsx defines the font variables there,
+     and CSS variables don't propagate upward to <html>. */
   body {
-    @apply bg-background text-foreground;
-  }
-  html {
-    @apply font-sans;
+    @apply bg-background font-sans text-foreground;
   }
 }

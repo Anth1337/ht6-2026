@@ -4,7 +4,7 @@ import { requireUserPage } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { accountBalance } from "@/lib/ledger";
 import { fmt } from "@/lib/money";
-import { Nav } from "@/components/nav";
+import { AppShell } from "@/components/app-shell";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -31,10 +31,10 @@ interface ObligationRow {
 }
 
 const stateBadge: Record<string, string> = {
-  pending: "bg-gray-500",
-  charged: "bg-green-600",
-  floated: "bg-amber-500",
-  settled: "bg-blue-600",
+  pending: "border border-muted-foreground/40 text-muted-foreground bg-transparent",
+  charged: "border border-signal-positive text-signal-positive bg-transparent",
+  floated: "border border-signal-attention text-signal-attention bg-transparent",
+  settled: "border border-signal-positive text-signal-positive bg-transparent",
 };
 
 export default async function Dashboard() {
@@ -60,38 +60,30 @@ export default async function Dashboard() {
     .all(user.id) as ObligationRow[];
 
   return (
-    <>
-      <Nav userName={user.name ?? user.email} />
-      <main className="mx-auto max-w-4xl space-y-6 p-8">
-        <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-bold">Dashboard</h1>
-          <span className="text-sm text-muted-foreground">
-            Card on file: {user.card_brand} •••• {user.card_last4}
-          </span>
-        </div>
-
+    <AppShell
+      title="Dashboard"
+      action={
+        <Button render={<Link href="/groups/new" />}>New group</Button>
+      }
+    >
         <Card>
-          <CardHeader>
-            <CardTitle>You owe SunPay</CardTitle>
-          </CardHeader>
-          <CardContent>
+          <CardContent className="space-y-3">
+            <p className="text-sm text-muted-foreground">You owe SunPay</p>
             <p
-              className={`text-4xl font-bold ${outstanding > 0 ? "text-amber-600" : "text-green-600"}`}
+              className={`text-5xl font-semibold tracking-tight ${outstanding > 0 ? "text-signal-attention" : "text-signal-positive"}`}
             >
               {fmt(outstanding)}
             </p>
-            {outstanding === 0 && (
-              <p className="mt-1 text-sm text-muted-foreground">All settled ✓</p>
-            )}
+            <p className="text-sm text-muted-foreground">
+              {outstanding === 0 && <>All settled ✓ · </>}
+              Card on file: {user.card_brand} •••• {user.card_last4}
+            </p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
+          <CardHeader>
             <CardTitle>Your groups</CardTitle>
-            <Button size="sm" render={<Link href="/groups/new" />}>
-              New group
-            </Button>
           </CardHeader>
           <CardContent className="space-y-2">
             {groups.length === 0 && (
@@ -100,7 +92,7 @@ export default async function Dashboard() {
             {groups.map((g) => (
               <div
                 key={g.id}
-                className="flex items-center justify-between gap-3 rounded-lg border p-3"
+                className="flex items-center justify-between gap-3 rounded-xl bg-background px-4 py-3"
               >
                 <Link
                   href={`/groups/${g.id}`}
@@ -133,9 +125,9 @@ export default async function Dashboard() {
               return (
                 <div
                   key={o.id}
-                  className="flex items-center gap-3 rounded-lg border p-3"
+                  className="flex items-center gap-3 rounded-xl bg-background px-4 py-3"
                 >
-                  <Badge className={`${stateBadge[o.state]} text-white`}>
+                  <Badge variant="outline" className={stateBadge[o.state]}>
                     {o.state}
                   </Badge>
                   <span className="font-medium">{o.merchant_name}</span>
@@ -155,7 +147,6 @@ export default async function Dashboard() {
             })}
           </CardContent>
         </Card>
-      </main>
-    </>
+    </AppShell>
   );
 }
