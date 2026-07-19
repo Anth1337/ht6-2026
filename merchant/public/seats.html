@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TicketMaster — Select seats</title>
+  <link rel="stylesheet" href="/tm.css" />
+</head>
+<body>
+  <header><span class="logo">ticket<em>master</em></span></header>
+  <main class="seat-page">
+    <section class="event-heading">
+      <p class="eyebrow">Scotiabank Arena · Toronto, ON</p>
+      <h1>Total Eclipse of the Chart — World Tour</h1>
+      <p class="muted">Sat, Sep 12, 2026 · 8:00 PM</p>
+    </section>
+
+    <div class="seat-layout">
+      <section class="venue-card" aria-labelledby="venue-map-title">
+        <div class="venue-card-heading">
+          <h2 id="venue-map-title">Choose your seats</h2>
+          <p class="muted">Your seats are reserved for this demo.</p>
+        </div>
+        <div class="stage" aria-label="Stage">STAGE</div>
+        <div class="venue-map" aria-label="Scotiabank Arena seating chart">
+          <div class="section section-top"><span>101</span></div>
+          <div class="section section-left"><span>102</span></div>
+          <div class="section section-right"><span>104</span></div>
+          <div class="section section-bottom"><span>103</span></div>
+          <div class="floor-section">
+            <span class="section-label">FLOOR A</span>
+            <div class="seat-grid" aria-label="Floor A seats">
+              <span class="seat">1</span><span class="seat">2</span><span class="seat unavailable">3</span><span class="seat">4</span><span class="seat">5</span><span class="seat">6</span><span class="seat unavailable">7</span><span class="seat">8</span><span class="seat">9</span>
+              <span class="seat">10</span><span class="seat">11</span><span class="seat">12</span><span class="seat">13</span><span class="seat">14</span><span class="seat unavailable">15</span><span class="seat">16</span><span class="seat">17</span><span class="seat">18</span>
+              <span class="seat">19</span><span class="seat">20</span><span class="seat">21</span><span class="seat unavailable">22</span><span class="seat">23</span><span class="seat">24</span><span class="seat">25</span><span class="seat">26</span><span class="seat">27</span>
+              <span class="seat">28</span><span class="seat">29</span><span class="seat">30</span><span class="seat selected" aria-label="Selected seat, Row 12 Seat 7">7</span><span class="seat selected" aria-label="Selected seat, Row 12 Seat 8">8</span><span class="seat selected" aria-label="Selected seat, Row 12 Seat 9">9</span><span class="seat">34</span><span class="seat">35</span><span class="seat unavailable">36</span>
+              <span class="seat">37</span><span class="seat unavailable">38</span><span class="seat">39</span><span class="seat">40</span><span class="seat">41</span><span class="seat">42</span><span class="seat">43</span><span class="seat">44</span><span class="seat">45</span>
+            </div>
+            <p class="row-label">ROW 12</p>
+          </div>
+        </div>
+        <div class="seat-legend" aria-label="Seat legend">
+          <span><i class="legend-dot available"></i>Available</span>
+          <span><i class="legend-dot selected"></i>Selected</span>
+          <span><i class="legend-dot unavailable"></i>Unavailable</span>
+        </div>
+      </section>
+
+      <aside class="selection-card" aria-labelledby="selection-title">
+        <p class="eyebrow">Your selection</p>
+        <h2 id="selection-title">3 tickets</h2>
+        <div class="selection-details">
+          <p><strong>Floor A</strong></p>
+          <p>Row 12 · Seats 7, 8, 9</p>
+          <p>3 × $233.33</p>
+        </div>
+        <div class="row"><span>Tickets</span><span>$699.99</span></div>
+        <div class="row"><span>Order fee</span><span>$0.01</span></div>
+        <div class="row total"><span>Total</span><span>$700.00</span></div>
+        <a class="btn" href="/event">Continue</a>
+      </aside>
+    </div>
+  </main>
+  <footer>Demo storefront — not affiliated with Ticketmaster. Stripe test mode; no real money moves.</footer>
+</body>
+</html>
