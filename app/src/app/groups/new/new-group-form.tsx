@@ -40,7 +40,7 @@ export function NewGroupForm() {
           id="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Cancun Trip"
+          placeholder="Concert"
           required
         />
       </div>

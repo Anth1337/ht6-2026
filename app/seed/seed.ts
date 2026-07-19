@@ -1,7 +1,7 @@
 /**
  * npm run seed — full reset per spec §8.
  * Deletes dev.db, recreates the schema, creates Stripe test customers with
- * saved cards, and seeds the "Cancun Trip" group with all invites accepted.
+ * saved cards, and seeds the "Concert" group with all invites accepted.
  * Run: npx tsx --env-file=.env.local seed/seed.ts
  */
 import { existsSync, rmSync, readFileSync } from "node:fs";
@@ -80,17 +80,17 @@ async function main() {
     );
   }
 
-  // Group "Cancun Trip", invite CANCUN1, all accepted; caps $1,500/$1,200/$500.
+  // Group "Concert", invite CANCUN1, all accepted; caps $1,500/$1,200/$500.
   const groupId = newId("grp");
   db.prepare(
     "INSERT INTO groups (id, organizer_id, name, invite_code, created_at) VALUES (?, ?, ?, ?, ?)"
-  ).run(groupId, userIds[0], "Cancun Trip", "CANCUN1", Date.now());
+  ).run(groupId, userIds[0], "Concert", "CANCUN1", Date.now());
   const caps = [150000, 120000, 50000];
   const insertMembership = db.prepare(
     "INSERT INTO memberships (group_id, user_id, cap_cents, accepted_at) VALUES (?, ?, ?, ?)"
   );
   userIds.forEach((uid, i) => insertMembership.run(groupId, uid, caps[i], Date.now()));
-  console.log(`group "Cancun Trip" (${groupId}) invite CANCUN1, 3 members accepted`);
+  console.log(`group "Concert" (${groupId}) invite CANCUN1, 3 members accepted`);
 
   // Stay22 fixture presence check (captured in Phase 0).
   const fixture = path.join(process.cwd(), "fixtures", "stay22.json");
