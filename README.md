@@ -55,7 +55,7 @@ npx tsx --env-file=.env.local scripts/proof-stay22.ts       # live Stay22 call, 
 
 ## Demo script (3 minutes)
 
-1. **TicketMaster** `http://localhost:3001/event` — 3 tickets, $700 → Checkout → **⚡ Split with SunPay**
+1. **TicketMaster** `http://localhost:3001/seats` — 3 selected seats, $700 → Continue → Checkout → **⚡ Split with SunPay**
 2. Lands on SunPay (sign in as the organizer) → pick "Cancun Trip" → review shows 3 shares, the organizer's odd cent flagged
 3. **Authorize** → Auth0 step-up MFA (organizer types their TOTP code) — *"MFA on the payment, not the login"*
 4. Execution screen: member 1 ✓, member 2 ✓, **member 3 declines → float covers $233.33** — merchant still paid in full

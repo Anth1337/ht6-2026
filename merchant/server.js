@@ -53,7 +53,10 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 // --- pages ---------------------------------------------------------------
-app.get("/", (_req, res) => res.redirect("/event"));
+app.get("/", (_req, res) => res.redirect("/seats"));
+app.get("/seats", (_req, res) =>
+  res.sendFile(path.join(__dirname, "public", "seats.html"))
+);
 app.get("/event", (_req, res) =>
   res.sendFile(path.join(__dirname, "public", "event.html"))
 );
@@ -130,6 +133,6 @@ app.post("/api/payment-callback", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`TicketMaster demo → http://localhost:${PORT}/event`);
+  console.log(`TicketMaster demo → http://localhost:${PORT}/seats`);
   console.log(`seeded order ORD-8814 ($700.00), status pending`);
 });
