@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TicketMaster — Checkout</title>
+  <link rel="stylesheet" href="/tm.css" />
+</head>
+<body>
+  <header><span class="logo">ticket<em>master</em></span></header>
+  <main>
+    <div class="card">
+      <h1>Checkout</h1>
+      <p class="muted" id="order-line">Loading…</p>
+      <div class="row total"><span>Total due</span><span id="total"></span></div>
+      <a class="btn" href="#" onclick="alert('Card checkout is out of scope for this demo — use Split with SunPay.'); return false;">Pay with card</a>
+      <div class="divider">— or —</div>
+      <div id="sunpay-button" data-order-id=""></div>
+    </div>
+  </main>
+  <footer>Demo storefront — not affiliated with Ticketmaster. Stripe test mode; no real money moves.</footer>
+  <script>
+    const orderId = location.pathname.split("/").pop();
+    const money = (c) => `$${(c / 100).toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
+    fetch(`/api/order/${orderId}`).then((r) => r.json()).then((o) => {
+      document.getElementById("order-line").textContent = `Order ${o.id} — ${o.event} (${o.qty} tickets)`;
+      document.getElementById("total").textContent = money(o.total_cents);
+      const mount = document.getElementById("sunpay-button");
+      mount.dataset.orderId = o.id;
+      // SunPay SDK reads data-order-id and asks our server for a signed handoff URL.
+      const s = document.createElement("script");
+      s.src = "http://localhost:3000/sdk.js";
+      s.dataset.target = "#sunpay-button";
+      s.dataset.handoffEndpoint = `/api/handoff/${o.id}`;
+      document.body.appendChild(s);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "sunpay-workspace",
+  "private": true,
+  "scripts": {
+    "seed": "npm --prefix app run seed",
+    "dev:app": "npm --prefix app run dev",
+    "dev:merchant": "npm --prefix merchant run dev",
+    "test": "npm --prefix app test"
+  }
+}

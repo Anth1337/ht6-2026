@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TicketMaster — Order</title>
+  <link rel="stylesheet" href="/tm.css" />
+</head>
+<body>
+  <header><span class="logo">ticket<em>master</em></span></header>
+  <main>
+    <div class="card">
+      <h1 id="title">Order</h1>
+      <p class="muted" id="order-line">Loading…</p>
+      <p style="margin-top:12px">
+        <span class="status pending" id="status">…</span>
+      </p>
+      <p class="muted" id="paid-via" style="margin-top:8px"></p>
+    </div>
+    <div class="card" id="reset-card" style="display:none">
+      <p class="muted" style="margin-bottom:10px">Demo controls</p>
+      <button class="btn" id="reset-btn" style="background:#12263f">↺ Reset demo &amp; run again</button>
+    </div>
+  </main>
+  <footer>Demo storefront — not affiliated with Ticketmaster. Stripe test mode; no real money moves.</footer>
+  <script>
+    const orderId = location.pathname.split("/").pop();
+    const money = (c) => `$${(c / 100).toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
+    function render(o) {
+      document.getElementById("title").textContent = `Order ${o.id}`;
+      document.getElementById("order-line").textContent =
+        `${o.event} — ${o.qty} tickets — ${money(o.total_cents)}`;
+      const el = document.getElementById("status");
+      if (o.status === "confirmed") {
+        el.className = "status confirmed";
+        el.textContent = "Order confirmed ✓ — Paid via SunPay";
+        document.getElementById("paid-via").textContent = o.paid_via ?? "";
+        document.getElementById("reset-card").style.display = "block";
+        return true; // stop polling
+      }
+      el.className = "status pending";
+      el.textContent = "Pending payment…";
+      return false;
+    }
+    async function poll() {
+      const o = await fetch(`/api/order/${orderId}`).then((r) => r.json());
+      if (!render(o)) setTimeout(poll, 1000);
+    }
+    poll();
+
+    document.getElementById("reset-btn").addEventListener("click", async (e) => {
+      e.target.disabled = true;
+      e.target.textContent = "Resetting…";
+      await fetch("/api/reset", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ order_id: orderId }),
+      });
+      location.href = "/event";
+    });
+  </script>
+</body>
+</html>

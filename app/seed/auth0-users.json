@@ -1,0 +1,23 @@
+{
+  "_instructions": "auth0_id placeholders are auto-linked by email on each user's first login (src/lib/auth.ts). To pin them explicitly, paste each user_id from Auth0 Dashboard → User Management → Users. Roles: first = organizer (working card, odd cent), second = working card, third = declining card + backup card for the repayment demo.",
+  "users": [
+    {
+      "role": "organizer",
+      "auth0_id": "REPLACE_ME_auth0|anthony",
+      "email": "anthony@demo.ca",
+      "name": "Anthony"
+    },
+    {
+      "role": "member2",
+      "auth0_id": "REPLACE_ME_auth0|kathy",
+      "email": "kathy@demo.ca",
+      "name": "Kathy"
+    },
+    {
+      "role": "member3_declining",
+      "auth0_id": "REPLACE_ME_auth0|gabriel",
+      "email": "gabriel@demo.ca",
+      "name": "Gabriel"
+    }
+  ]
+}

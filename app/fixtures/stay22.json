@@ -1,0 +1,591 @@
+{
+  "meta": {
+    "pageSize": 12,
+    "count": 12,
+    "page": 1,
+    "hasMore": true,
+    "total": 63,
+    "currency": "USD",
+    "checkin": "2026-09-10",
+    "checkout": "2026-09-13",
+    "nights": 3
+  },
+  "_links": {
+    "self": {
+      "href": "https://api.stay22.com/v2/accommodations?lat=21.1619&lng=-86.8515&checkin=2026-09-10&checkout=2026-09-13&adults=3&children=0&rooms=1&currency=USD&pageSize=12&page=1&lang=en&cluster=false&radius=10000"
+    },
+    "first": {
+      "href": "https://api.stay22.com/v2/accommodations?lat=21.1619&lng=-86.8515&checkin=2026-09-10&checkout=2026-09-13&adults=3&children=0&rooms=1&currency=USD&pageSize=12&page=1&lang=en&cluster=false&radius=10000"
+    },
+    "next": {
+      "href": "https://api.stay22.com/v2/accommodations?lat=21.1619&lng=-86.8515&checkin=2026-09-10&checkout=2026-09-13&adults=3&children=0&rooms=1&currency=USD&pageSize=12&page=2&lang=en&cluster=false&radius=10000"
+    }
+  },
+  "results": [
+    {
+      "id": "39934988.0000",
+      "url": "https://www.stay22.com/allez/roam/usds_39934988.0000?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+      "suppliers": {
+        "booking": {
+          "id": "8683685",
+          "link": "https://www.stay22.com/allez/booking/8683685?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+          "media": {
+            "logoSquare": "https://r2.stay22.com/2025_booking.png"
+          },
+          "price": {
+            "total": 1688
+          }
+        }
+      },
+      "name": "Apartamento Vacacional En Cancún Con Piscina",
+      "type": "Apartment",
+      "location": {
+        "address": "21.171877499652087, -86.85267693533912, Cancun MX, 77560",
+        "coordinates": {
+          "lat": 21.161907,
+          "lng": -86.851524
+        },
+        "distanceInMeters": 3
+      },
+      "rating": {
+        "value": null,
+        "hotelStars": 4,
+        "count": null
+      },
+      "capacity": {
+        "guests": 4,
+        "bedrooms": 2,
+        "beds": 3,
+        "bathrooms": 2
+      },
+      "policies": {
+        "instantBook": true,
+        "freeCancellation": false
+      },
+      "media": {
+        "thumbnail": "https://q-xx.bstatic.com/xdata/images/hotel/max500/368329947.jpg?k=45d1a561336e564cdab267df974e6756c57eadd8518d4e319747d050c5a1455c&o=&a=1607597"
+      }
+    },
+    {
+      "id": "39934997.0000",
+      "url": "https://www.stay22.com/allez/roam/usds_39934997.0000?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+      "suppliers": {
+        "expedia": {
+          "id": "66955061",
+          "link": "https://www.stay22.com/allez/expedia/66955061?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+          "media": {
+            "logoSquare": "https://r2.stay22.com/2025_expedia.png"
+          },
+          "price": {
+            "total": 103512
+          }
+        },
+        "hotelscom": {
+          "id": "2143561952",
+          "link": "https://www.stay22.com/allez/hotelscom/2143561952?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+          "media": {
+            "logoSquare": "https://r2.stay22.com/2025_hotelscom.png"
+          },
+          "price": {
+            "total": 103512
+          }
+        }
+      },
+      "name": "Apartamento En Isla Mujeres Cancún",
+      "type": "Apartment",
+      "location": {
+        "address": "21.233689720588654, -86.73480899637953, Cancun MX, 77400",
+        "coordinates": {
+          "lat": 21.161907,
+          "lng": -86.851524
+        },
+        "distanceInMeters": 3
+      },
+      "rating": {
+        "value": null,
+        "hotelStars": null,
+        "count": null
+      },
+      "capacity": {
+        "guests": null,
+        "bedrooms": null,
+        "beds": null,
+        "bathrooms": null
+      },
+      "policies": {
+        "instantBook": true,
+        "freeCancellation": false
+      },
+      "media": {
+        "thumbnail": "https://images.trvl-media.com/lodging/67000000/66960000/66955100/66955061/b56e98c9.jpg?impolicy=ccrop&w=1000&h=666&q=medium"
+      }
+    },
+    {
+      "id": "7e4d5bce85e98997fad6cde079969fbf.0000",
+      "url": "https://www.stay22.com/allez/roam/usds_7e4d5bce85e98997fad6cde079969fbf.0000?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+      "suppliers": {
+        "booking": {
+          "id": "14605194",
+          "link": "https://www.stay22.com/allez/booking/14605194?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+          "media": {
+            "logoSquare": "https://r2.stay22.com/2025_booking.png"
+          },
+          "price": {
+            "total": 4941
+          }
+        }
+      },
+      "name": "Barco privado de lujo para tu familia y amigos en Cancun-isla mujeres",
+      "type": "Accommodation",
+      "location": {
+        "address": "Cancún, Cancún Mexico, 77500",
+        "coordinates": {
+          "lat": 21.161908,
+          "lng": -86.851528
+        },
+        "distanceInMeters": 3
+      },
+      "rating": {
+        "value": null,
+        "hotelStars": null,
+        "count": null
+      },
+      "capacity": {
+        "guests": 30,
+        "bedrooms": 1,
+        "beds": 1,
+        "bathrooms": 1
+      },
+      "policies": {
+        "instantBook": true,
+        "freeCancellation": false
+      },
+      "media": {
+        "thumbnail": "https://q-xx.bstatic.com/xdata/images/hotel/max500/716561694.jpg?k=eccec8b2a84e183668f4c6b980fbcad24dde2c4465ae9414aea738f93e1a4965&o=&a=1607597"
+      }
+    },
+    {
+      "id": "af30c196ce092709c76d2f60df11d855.0000",
+      "url": "https://www.stay22.com/allez/roam/usds_af30c196ce092709c76d2f60df11d855.0000?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+      "suppliers": {
+        "expedia": {
+          "id": "66954803",
+          "link": "https://www.stay22.com/allez/expedia/66954803?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+          "media": {
+            "logoSquare": "https://r2.stay22.com/2025_expedia.png"
+          },
+          "price": {
+            "total": 2030
+          }
+        },
+        "hotelscom": {
+          "id": "2143553696",
+          "link": "https://www.stay22.com/allez/hotelscom/2143553696?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+          "media": {
+            "logoSquare": "https://r2.stay22.com/2025_hotelscom.png"
+          },
+          "price": {
+            "total": 2030
+          }
+        }
+      },
+      "name": "Apartamento Vacacional en Cancún",
+      "type": "Accommodation",
+      "location": {
+        "address": "21.171877499652087, -86.85267693533912, Cancun Mexico, 77560",
+        "coordinates": {
+          "lat": 21.161908,
+          "lng": -86.851528
+        },
+        "distanceInMeters": 3
+      },
+      "rating": {
+        "value": null,
+        "hotelStars": null,
+        "count": null
+      },
+      "capacity": {
+        "guests": null,
+        "bedrooms": null,
+        "beds": null,
+        "bathrooms": null
+      },
+      "policies": {
+        "instantBook": true,
+        "freeCancellation": false
+      },
+      "media": {
+        "thumbnail": "https://images.trvl-media.com/lodging/67000000/66960000/66954900/66954803/06884579.jpg?impolicy=ccrop&w=1000&h=666&q=medium"
+      }
+    },
+    {
+      "id": "31463d5f9f0ff9126ae1dd87b6435420.0000",
+      "url": "https://www.stay22.com/allez/roam/usds_31463d5f9f0ff9126ae1dd87b6435420.0000?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+      "suppliers": {
+        "vrbo": {
+          "id": "615.11161665.6201978",
+          "link": "https://www.stay22.com/allez/vrbo/615.11161665.6201978?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+          "media": {
+            "logoSquare": "https://r2.stay22.com/2025_vrbo.png"
+          },
+          "price": {
+            "total": 213
+          }
+        }
+      },
+      "name": "Beautiful Apartment in Downtown Cancun",
+      "type": "Accommodation",
+      "location": {
+        "address": "CANCUN Mexico, 77516",
+        "coordinates": {
+          "lat": 21.163329,
+          "lng": -86.849841
+        },
+        "distanceInMeters": 234
+      },
+      "rating": {
+        "value": null,
+        "hotelStars": null,
+        "count": null
+      },
+      "capacity": {
+        "guests": null,
+        "bedrooms": null,
+        "beds": null,
+        "bathrooms": null
+      },
+      "policies": {
+        "instantBook": false,
+        "freeCancellation": true
+      },
+      "media": {
+        "thumbnail": "https://media.vrbo.com/lodging/89000000/88700000/88692400/88692363/496ab12c.jpg?impolicy=ccrop&w=1000&h=666&q=medium"
+      }
+    },
+    {
+      "id": "c4f2e48a184cf76622f789d6bd5e24c8.0000",
+      "url": "https://www.stay22.com/allez/roam/usds_c4f2e48a184cf76622f789d6bd5e24c8.0000?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+      "suppliers": {
+        "vrbo": {
+          "id": "121.9386529.8465362",
+          "link": "https://www.stay22.com/allez/vrbo/121.9386529.8465362?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+          "media": {
+            "logoSquare": "https://r2.stay22.com/2025_vrbo.png"
+          },
+          "price": {
+            "total": 302
+          }
+        }
+      },
+      "name": "Casita Peniel - Puerto Morelos",
+      "type": "Accommodation",
+      "location": {
+        "address": "Puerto Morelos Mexico, 77580",
+        "coordinates": {
+          "lat": 21.164235,
+          "lng": -86.853351
+        },
+        "distanceInMeters": 323
+      },
+      "rating": {
+        "value": null,
+        "hotelStars": null,
+        "count": null
+      },
+      "capacity": {
+        "guests": null,
+        "bedrooms": null,
+        "beds": null,
+        "bathrooms": null
+      },
+      "policies": {
+        "instantBook": false,
+        "freeCancellation": true
+      },
+      "media": {
+        "thumbnail": "https://media.vrbo.com/lodging/49000000/48260000/48257200/48257114/aaf8e8cb.jpg?impolicy=ccrop&w=1000&h=666&q=medium"
+      }
+    },
+    {
+      "id": "39a1d8c4d41dba03d59963b05ed996bc.0000",
+      "url": "https://www.stay22.com/allez/roam/usds_39a1d8c4d41dba03d59963b05ed996bc.0000?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+      "suppliers": {
+        "vrbo": {
+          "id": "615.11162197.6202510",
+          "link": "https://www.stay22.com/allez/vrbo/615.11162197.6202510?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+          "media": {
+            "logoSquare": "https://r2.stay22.com/2025_vrbo.png"
+          },
+          "price": {
+            "total": 3322
+          }
+        }
+      },
+      "name": "VIDANTA RIVIERA AMAYA<br>KINGDOM OF THE SUN III",
+      "type": "Accommodation",
+      "location": {
+        "address": "Playa del Carmen Mexico, 77710",
+        "coordinates": {
+          "lat": 21.158198,
+          "lng": -86.851404
+        },
+        "distanceInMeters": 412
+      },
+      "rating": {
+        "value": null,
+        "hotelStars": null,
+        "count": null
+      },
+      "capacity": {
+        "guests": null,
+        "bedrooms": null,
+        "beds": null,
+        "bathrooms": null
+      },
+      "policies": {
+        "instantBook": false,
+        "freeCancellation": true
+      },
+      "media": {
+        "thumbnail": "https://media.vrbo.com/lodging/89000000/88750000/88741300/88741265/328006a5_edited_f635.jpg?impolicy=ccrop&w=1000&h=666&q=medium"
+      }
+    },
+    {
+      "id": "3306399e06375db9907aec900695ab19.0000",
+      "url": "https://www.stay22.com/allez/roam/usds_3306399e06375db9907aec900695ab19.0000?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+      "suppliers": {
+        "vrbo": {
+          "id": "321.2771735.3343665",
+          "link": "https://www.stay22.com/allez/vrbo/321.2771735.3343665?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+          "media": {
+            "logoSquare": "https://r2.stay22.com/2025_vrbo.png"
+          },
+          "price": {
+            "total": 1635
+          }
+        }
+      },
+      "name": "All Inclusive Adults Only - Resort<br>In Punta , Cancun Room # 1 Junior Suite",
+      "type": "Accommodation",
+      "location": {
+        "address": "Cancún Mexico, 77500",
+        "coordinates": {
+          "lat": 21.164688,
+          "lng": -86.854487
+        },
+        "distanceInMeters": 438
+      },
+      "rating": {
+        "value": null,
+        "hotelStars": null,
+        "count": null
+      },
+      "capacity": {
+        "guests": null,
+        "bedrooms": null,
+        "beds": null,
+        "bathrooms": null
+      },
+      "policies": {
+        "instantBook": false,
+        "freeCancellation": true
+      },
+      "media": {
+        "thumbnail": "https://media.vrbo.com/lodging/78000000/77870000/77867200/77867129/3b85b329.jpg?impolicy=ccrop&w=1000&h=666&q=medium"
+      }
+    },
+    {
+      "id": "f60f52ee84d85d42f7456ea3c1d75bf5.0000",
+      "url": "https://www.stay22.com/allez/roam/usds_f60f52ee84d85d42f7456ea3c1d75bf5.0000?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+      "suppliers": {
+        "vrbo": {
+          "id": "121.4989060.6225325",
+          "link": "https://www.stay22.com/allez/vrbo/121.4989060.6225325?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+          "media": {
+            "logoSquare": "https://r2.stay22.com/2025_vrbo.png"
+          },
+          "price": {
+            "total": 335
+          }
+        }
+      },
+      "name": "LDS CANCUN HOME. es para ti!",
+      "type": "Accommodation",
+      "location": {
+        "address": "Cancún Mexico, 77507",
+        "coordinates": {
+          "lat": 21.157156,
+          "lng": -86.852083
+        },
+        "distanceInMeters": 531
+      },
+      "rating": {
+        "value": null,
+        "hotelStars": null,
+        "count": null
+      },
+      "capacity": {
+        "guests": null,
+        "bedrooms": null,
+        "beds": null,
+        "bathrooms": null
+      },
+      "policies": {
+        "instantBook": false,
+        "freeCancellation": true
+      },
+      "media": {
+        "thumbnail": "https://media.vrbo.com/lodging/31000000/30360000/30356100/30356066/899f02d6.jpg?impolicy=ccrop&w=1000&h=666&q=medium"
+      }
+    },
+    {
+      "id": "b5c76dc91dd16c6925b59bb44adf049a.0000",
+      "url": "https://www.stay22.com/allez/roam/usds_b5c76dc91dd16c6925b59bb44adf049a.0000?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+      "suppliers": {
+        "expedia": {
+          "id": "126245726",
+          "link": "https://www.stay22.com/allez/expedia/126245726?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+          "media": {
+            "logoSquare": "https://r2.stay22.com/2025_expedia.png"
+          }
+        },
+        "vrbo": {
+          "id": "321.5098168.5672330",
+          "link": "https://www.stay22.com/allez/vrbo/321.5098168.5672330?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+          "media": {
+            "logoSquare": "https://r2.stay22.com/2025_vrbo.png"
+          },
+          "price": {
+            "total": 2434
+          }
+        }
+      },
+      "name": "1-bedroom resort in fabulous Cancún with Kitchen and AC.",
+      "type": "Accommodation",
+      "location": {
+        "address": "Cancún Mexico, 77400",
+        "coordinates": {
+          "lat": 21.156537,
+          "lng": -86.851364
+        },
+        "distanceInMeters": 597
+      },
+      "rating": {
+        "value": null,
+        "hotelStars": null,
+        "count": null
+      },
+      "capacity": {
+        "guests": null,
+        "bedrooms": null,
+        "beds": null,
+        "bathrooms": null
+      },
+      "policies": {
+        "instantBook": false,
+        "freeCancellation": true
+      },
+      "media": {
+        "thumbnail": "https://media.vrbo.com/lodging/127000000/126250000/126245800/126245726/754f3da6.jpg?impolicy=ccrop&w=1000&h=666&q=medium"
+      }
+    },
+    {
+      "id": "16815396.0000",
+      "url": "https://www.stay22.com/allez/roam/usds_16815396.0000?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+      "suppliers": {
+        "booking": {
+          "id": "8971519",
+          "link": "https://www.stay22.com/allez/booking/8971519?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+          "media": {
+            "logoSquare": "https://r2.stay22.com/2025_booking.png"
+          },
+          "price": {
+            "total": 230
+          }
+        }
+      },
+      "name": "Casa Balam Cayo Lobo",
+      "type": "Apartment",
+      "location": {
+        "address": "SMZa 32 Mza 8 Lte 10 Calle Cayo Lobo, Cancún MX, 77508",
+        "coordinates": {
+          "lat": 21.158888,
+          "lng": -86.84644
+        },
+        "distanceInMeters": 622
+      },
+      "rating": {
+        "value": 6.6,
+        "hotelStars": 3,
+        "count": 24
+      },
+      "capacity": {
+        "guests": 6,
+        "bedrooms": 4,
+        "beds": 6,
+        "bathrooms": 3
+      },
+      "policies": {
+        "instantBook": true,
+        "freeCancellation": false
+      },
+      "media": {
+        "thumbnail": "https://q-xx.bstatic.com/xdata/images/hotel/max500/885883794.jpg?k=45626e4404a6bbd936430051c4d3e93a562d1bfcdd174ea606ad9f9431751ac8&o=&a=1607597"
+      }
+    },
+    {
+      "id": "ddae1ce45d421f02f0298a8ea05e2c21.0000",
+      "url": "https://www.stay22.com/allez/roam/usds_ddae1ce45d421f02f0298a8ea05e2c21.0000?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+      "suppliers": {
+        "expedia": {
+          "id": "132851508",
+          "link": "https://www.stay22.com/allez/expedia/132851508?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+          "media": {
+            "logoSquare": "https://r2.stay22.com/2025_expedia.png"
+          },
+          "price": {
+            "total": 261
+          }
+        },
+        "hotelscom": {
+          "id": "4252248256",
+          "link": "https://www.stay22.com/allez/hotelscom/4252248256?checkin=2026-09-10&checkout=2026-09-13&aid=anth&adults=3&children=0&rooms=1&source=direct&medium=api",
+          "media": {
+            "logoSquare": "https://r2.stay22.com/2025_hotelscom.png"
+          },
+          "price": {
+            "total": 261
+          }
+        }
+      },
+      "name": "Casa Balam Cayo Lobo",
+      "type": "Accommodation",
+      "location": {
+        "address": "Supermanzana 32, Manzana 8, Cancún Mexico, 77508",
+        "coordinates": {
+          "lat": 21.158896,
+          "lng": -86.84632
+        },
+        "distanceInMeters": 633
+      },
+      "rating": {
+        "value": null,
+        "hotelStars": null,
+        "count": null
+      },
+      "capacity": {
+        "guests": null,
+        "bedrooms": null,
+        "beds": null,
+        "bathrooms": null
+      },
+      "policies": {
+        "instantBook": true,
+        "freeCancellation": false
+      },
+      "media": {
+        "thumbnail": "https://images.trvl-media.com/lodging/133000000/132860000/132851600/132851508/b1baa1d7.jpg?impolicy=ccrop&w=1000&h=666&q=medium"
+      }
+    }
+  ]
+}

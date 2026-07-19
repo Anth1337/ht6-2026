@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TicketMaster — Total Eclipse of the Chart</title>
+  <link rel="stylesheet" href="/tm.css" />
+</head>
+<body>
+  <header><span class="logo">ticket<em>master</em></span></header>
+  <main>
+    <div class="card">
+      <span class="big">🎤</span>
+      <h1 id="event-name">Loading…</h1>
+      <p class="muted" id="event-meta"></p>
+    </div>
+    <div class="card">
+      <div class="row"><span id="qty-line">…</span><span id="subtotal"></span></div>
+      <div class="row"><span>Order fee</span><span id="fee"></span></div>
+      <div class="row total"><span>Total</span><span id="total"></span></div>
+      <a class="btn" id="checkout-link" href="#">Checkout</a>
+      <button id="reset-btn" style="width:100%;margin-top:8px;background:none;border:0;color:#8aa0b8;font-size:13px;cursor:pointer;text-decoration:underline">
+        Reset demo (clear any prior split)
+      </button>
+    </div>
+  </main>
+  <footer>Demo storefront — not affiliated with Ticketmaster. Stripe test mode; no real money moves.</footer>
+  <script>
+    const money = (c) => `$${(c / 100).toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
+    fetch("/api/order/ORD-8814").then((r) => r.json()).then((o) => {
+      document.getElementById("event-name").textContent = o.event;
+      document.getElementById("event-meta").textContent = `${o.venue} · ${o.date}`;
+      document.getElementById("qty-line").textContent = `${o.qty} × General Admission (${money(o.unit_cents)})`;
+      document.getElementById("subtotal").textContent = money(o.qty * o.unit_cents);
+      document.getElementById("fee").textContent = money(o.fee_cents);
+      document.getElementById("total").textContent = money(o.total_cents);
+      document.getElementById("checkout-link").href = `/checkout/${o.id}`;
+    });
+    document.getElementById("reset-btn").addEventListener("click", async (e) => {
+      e.target.textContent = "Resetting…";
+      await fetch("/api/reset", { method: "POST" });
+      e.target.textContent = "Demo reset ✓";
+    });
+  </script>
+</body>
+</html>
